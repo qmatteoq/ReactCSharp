@@ -49,7 +49,7 @@ namespace HelloWorldNet
         }
 
         private static async void Connection_RequestReceived(AppServiceConnection sender, AppServiceRequestReceivedEventArgs args)
-        {
+        {          
             string name = args.Request.Message["Name"].ToString();
             string surname = args.Request.Message["Surname"].ToString();
 
@@ -62,6 +62,5 @@ namespace HelloWorldNet
 
             await args.Request.SendResponseAsync(valueSet);
         }
-
     }
 }

@@ -2,9 +2,6 @@
 
 using System.Collections.Generic;
 
-// Namespaces from react-native-windows-msal
-using RNWMsal;
-
 namespace Microsoft.ReactNative.Managed
 {
     internal static class AutolinkedNativeModules

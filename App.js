@@ -27,8 +27,6 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-import DateTimePicker from '@react-native-community/datetimepicker';
-
 const App: () => React$Node = () => {
 
   useEffect(() => {
@@ -47,11 +45,6 @@ const App: () => React$Node = () => {
   const sendMessage = async() => {
     var message = await NativeModules.ServiceChannelModule.sendMessageWithAppService(name, surname);
     setApiData(message);
-  }
-
-  const login = async () => {
-    var result = await NativeModules.ReactNativeWindowsMsal.getLoginToken({ "tenant": "test", "clientId": "test"});
-    setApiData(result);
   }
 
   return (
@@ -75,11 +68,6 @@ const App: () => React$Node = () => {
               <TextInput onChangeText={text => setSurname(text)}  style={{ height: 40, borderColor: 'gray', borderWidth: 1 }} />
               <Button title="Send message" onPress={sendMessage} />
               <Text>{apiData}</Text>
-              <Button title="Login" onPress={login} />
-              <DateTimePicker
-                testID="dateTimePicker"
-                mode="date"
-                display="default" />              
           </View>
 
         </ScrollView>

@@ -32,9 +32,7 @@ namespace ReactCSharp
             Microsoft.ReactNative.Managed.AutolinkedNativeModules.RegisterAutolinkedNativeModulePackages(PackageProviders); // Includes any autolinked modules
 
             PackageProviders.Add(new Microsoft.ReactNative.Managed.ReactPackageProvider());
-            PackageProviders.Add(new RNWMsal.ReactPackageProvider());
-            PackageProviders.Add(new ServiceChannel.ReactPackageProvider());
-            PackageProviders.Add(new DateTimePicker.ReactPackageProvider());
+            PackageProviders.Add(new ServiceChannel.ReactPackageProvider());            
             PackageProviders.Add(new ReactPackageProvider());
 
             InitializeComponent();

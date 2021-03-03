@@ -24,13 +24,6 @@ namespace ServiceChannel
             }
         }
 
-        [ReactMethod("sendMessage")]
-        public async void SendMessageAsync(string name, string surname, IReactPromise<string> promise)
-        {
-            HttpClient client = new HttpClient();
-            var result = await client.GetStringAsync($"http://localhost:5000/api/sdk?name={name}&surname={surname}");
-            promise.Resolve(result);
-        }
 
         [ReactMethod("sendMessageWithAppService")]
         public async void SendMessageWithAppServiceAsync(string name, string surname, IReactPromise<string> promise)
