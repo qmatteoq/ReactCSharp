@@ -57,7 +57,6 @@ namespace ReactCSharp
             {
                 appServiceDeferral = args.TaskInstance.GetDeferral();
 
-                //ServiceChannel.AppConnection.Connection = details.AppServiceConnection;
                 var name = ReactPropertyBagHelper.GetName(ReactPropertyBagHelper.GlobalNamespace, "AppServiceConnection");
 
                 InstanceSettings.Properties.Set(name, details.AppServiceConnection);
