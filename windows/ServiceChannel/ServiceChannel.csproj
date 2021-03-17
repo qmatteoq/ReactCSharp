@@ -124,7 +124,6 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="AppConnection.cs" />
     <Compile Include="ReactPackageProvider.cs" />
     <Compile Include="ServiceChannelModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
