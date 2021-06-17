@@ -1,4 +1,5 @@
 ﻿using Microsoft.ReactNative;
+using System.Linq;
 using Windows.ApplicationModel.Activation;
 using Windows.ApplicationModel.AppService;
 using Windows.ApplicationModel.Background;
@@ -32,7 +33,7 @@ namespace ReactCSharp
             Microsoft.ReactNative.Managed.AutolinkedNativeModules.RegisterAutolinkedNativeModulePackages(PackageProviders); // Includes any autolinked modules
 
             PackageProviders.Add(new Microsoft.ReactNative.Managed.ReactPackageProvider());
-            PackageProviders.Add(new ServiceChannel.ReactPackageProvider());            
+            PackageProviders.Add(new ServiceChannel.ReactPackageProvider());
             PackageProviders.Add(new ReactPackageProvider());
 
             InitializeComponent();
@@ -49,6 +50,13 @@ namespace ReactCSharp
             var frame = Window.Current.Content as Frame;
             frame.Navigate(typeof(MainPage));
             Window.Current.Activate();
+        }
+
+
+        protected override void OnFileActivated(FileActivatedEventArgs args)
+        {
+            var name = ReactPropertyBagHelper.GetName(ReactPropertyBagHelper.GlobalNamespace, "FilePath");
+            InstanceSettings.Properties.Set(name, args.Files.FirstOrDefault().Path);
         }
 
         protected override void OnBackgroundActivated(BackgroundActivatedEventArgs args)
